@@ -6,26 +6,25 @@
 
 @layer base {
   :root {
-    /* App Background - Slate blue gradient */
-    --background: 214 19% 21%;
-    --background-gradient: linear-gradient(135deg, hsl(214 19% 21%), hsl(214 19% 26%));
-    --foreground: 0 0% 100%;
+    /* App Background - Very light grey */
+    --background: 210 17% 97%;
+    --foreground: 210 11% 15%;
 
     /* Card System - White cards with shadows */
     --card: 0 0% 100%;
-    --card-foreground: 214 19% 21%;
+    --card-foreground: 210 11% 15%;
 
     /* Popover System */
     --popover: 0 0% 100%;
-    --popover-foreground: 214 19% 21%;
+    --popover-foreground: 210 11% 15%;
 
     /* Primary - Teal */
     --primary: 181 100% 41%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 181 100% 46%;
+    --primary-hover: 181 100% 36%;
 
-    /* Secondary - Slate Blue */
-    --secondary: 214 19% 21%;
+    /* Secondary - Midnight Blue */
+    --secondary: 210 28% 39%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted tones */
@@ -125,9 +124,7 @@
   }
 
   body {
-    @apply text-foreground font-sans antialiased font-medium;
-    background: var(--background-gradient);
-    min-height: 100vh;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   /* Custom utility classes */
