@@ -12,11 +12,9 @@ import {
   Trash2, 
   Save, 
   StopCircle,
-  Clock,
-  SidebarOpen
+  Clock
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { SharedConfig } from "./CombinedAvatarInterface";
 
 interface Message {
@@ -155,17 +153,14 @@ const AvatarSessionMain = ({ config }: AvatarSessionMainProps) => {
       {/* Top Bar */}
       <div className="border-b bg-card">
         <div className="flex items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-4">
-            <SidebarTrigger />
-            <div className="flex items-center gap-3">
-              <Badge variant="outline" className="gap-1">
-                <Clock className="h-3 w-3" />
-                {formatDuration(sessionDuration)}
-              </Badge>
-              <Badge className={`${config.hubspotKey.trim() ? 'bg-success text-success-foreground' : 'bg-warning text-warning-foreground'}`}>
-                {config.hubspotKey.trim() ? 'Connected' : 'No API Key'}
-              </Badge>
-            </div>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="gap-1">
+              <Clock className="h-3 w-3" />
+              {formatDuration(sessionDuration)}
+            </Badge>
+            <Badge className={`${config.hubspotKey.trim() ? 'bg-success text-success-foreground' : 'bg-warning text-warning-foreground'}`}>
+              {config.hubspotKey.trim() ? 'Connected' : 'No API Key'}
+            </Badge>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="outline" onClick={handleClearHistory} size="sm" className="gap-2">
