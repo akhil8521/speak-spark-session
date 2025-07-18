@@ -1,13 +1,14 @@
 
 import { useState } from "react";
 import { 
-  SidebarProvider, 
-  Sidebar, 
-  SidebarContent, 
-  SidebarHeader, 
-  SidebarTrigger,
-  SidebarInset
-} from "@/components/ui/sidebar";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Settings } from "lucide-react";
 import ConfigurationSidebar from "./ConfigurationSidebar";
 import AvatarSessionMain from "./AvatarSessionMain";
 
@@ -35,28 +36,34 @@ const CombinedAvatarInterface = () => {
   };
 
   return (
-    <SidebarProvider defaultOpen={true}>
-      <div className="min-h-screen flex w-full">
-        <Sidebar className="border-r">
-          <SidebarHeader className="border-b p-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold">Configuration</h2>
-              <SidebarTrigger />
-            </div>
-          </SidebarHeader>
-          <SidebarContent>
-            <ConfigurationSidebar 
-              config={config} 
-              onConfigUpdate={updateConfig} 
-            />
-          </SidebarContent>
-        </Sidebar>
-        
-        <SidebarInset className="flex-1">
-          <AvatarSessionMain config={config} />
-        </SidebarInset>
+    <div className="min-h-screen flex w-full">
+      {/* Configuration Overlay */}
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button 
+            variant="outline" 
+            size="icon"
+            className="fixed top-4 left-4 z-50 bg-background/80 backdrop-blur-sm"
+          >
+            <Settings className="h-4 w-4" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="w-full sm:max-w-md p-0 overflow-y-auto">
+          <SheetHeader className="border-b p-4">
+            <SheetTitle>Configuration</SheetTitle>
+          </SheetHeader>
+          <ConfigurationSidebar 
+            config={config} 
+            onConfigUpdate={updateConfig} 
+          />
+        </SheetContent>
+      </Sheet>
+      
+      {/* Main Content */}
+      <div className="flex-1">
+        <AvatarSessionMain config={config} />
       </div>
-    </SidebarProvider>
+    </div>
   );
 };
 
