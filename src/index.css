@@ -2,39 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* AI Avatar Platform Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* App Background - Very light grey */
+    --background: 210 17% 97%;
+    --foreground: 210 11% 15%;
 
+    /* Card System - White cards with shadows */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 11% 15%;
 
+    /* Popover System */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 11% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Teal */
+    --primary: 181 100% 41%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 181 100% 36%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Midnight Blue */
+    --secondary: 210 28% 39%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 210 17% 95%;
+    --muted-foreground: 210 11% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Light teal */
+    --accent: 181 45% 94%;
+    --accent-foreground: 181 100% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* States */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Interactive elements */
+    --border: 210 17% 90%;
+    --input: 0 0% 100%;
+    --input-border: 210 17% 85%;
+    --ring: 181 100% 41%;
+
+    /* Animations & Timing */
+    --transition-smooth: all 0.15s ease-out;
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(210 11% 15% / 0.1), 0 1px 2px 0 hsl(210 11% 15% / 0.06);
+    --shadow-modal: 0 10px 15px -3px hsl(210 11% 15% / 0.1), 0 4px 6px -2px hsl(210 11% 15% / 0.05);
+    --shadow-active: 0 0 0 3px hsl(var(--primary) / 0.3);
 
     --radius: 0.5rem;
 
@@ -56,33 +78,35 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 11% 8%;
+    --foreground: 210 17% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 11% 12%;
+    --card-foreground: 210 17% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 11% 12%;
+    --popover-foreground: 210 17% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 181 100% 41%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 181 100% 46%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 28% 25%;
+    --secondary-foreground: 210 17% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 11% 15%;
+    --muted-foreground: 210 11% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 11% 18%;
+    --accent-foreground: 181 100% 70%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 210 11% 20%;
+    --input: 210 11% 15%;
+    --input-border: 210 11% 25%;
+    --ring: 181 100% 41%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +124,54 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom utility classes */
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .modal-shadow {
+    box-shadow: var(--shadow-modal);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Active states */
+  .mic-active {
+    box-shadow: var(--shadow-active);
+    animation: pulse-ring 2s infinite;
+  }
+
+  .avatar-speaking {
+    animation: glow-border 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px hsl(var(--primary) / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    }
+  }
+
+  @keyframes glow-border {
+    from {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+    }
+    to {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4);
+    }
   }
 }
