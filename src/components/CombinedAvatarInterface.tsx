@@ -1,12 +1,12 @@
 
 import { useState } from "react";
 import { 
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
 import ConfigurationSidebar from "./ConfigurationSidebar";
@@ -37,9 +37,9 @@ const CombinedAvatarInterface = () => {
 
   return (
     <div className="min-h-screen flex w-full">
-      {/* Configuration Full Page Dialog */}
-      <Dialog>
-        <DialogTrigger asChild>
+      {/* Configuration Overlay */}
+      <Sheet>
+        <SheetTrigger asChild>
           <Button 
             variant="outline" 
             size="icon"
@@ -47,17 +47,17 @@ const CombinedAvatarInterface = () => {
           >
             <Settings className="h-4 w-4" />
           </Button>
-        </DialogTrigger>
-        <DialogContent className="w-[80vw] h-[80vh] max-w-none p-0 overflow-y-auto">
-          <DialogHeader className="border-b p-4">
-            <DialogTitle>Configuration</DialogTitle>
-          </DialogHeader>
+        </SheetTrigger>
+        <SheetContent side="left" className="w-full h-full max-w-none p-0 overflow-y-auto">
+          <SheetHeader className="border-b p-4">
+            <SheetTitle>Configuration</SheetTitle>
+          </SheetHeader>
           <ConfigurationSidebar 
             config={config} 
             onConfigUpdate={updateConfig} 
           />
-        </DialogContent>
-      </Dialog>
+        </SheetContent>
+      </Sheet>
       
       {/* Main Content */}
       <div className="flex-1">
