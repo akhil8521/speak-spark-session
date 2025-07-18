@@ -48,7 +48,7 @@ const CombinedAvatarInterface = () => {
             <Settings className="h-4 w-4" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-full max-h-full w-screen h-screen p-0 overflow-y-auto">
+        <DialogContent className="w-[80vw] h-[80vh] max-w-none p-0 overflow-y-auto">
           <DialogHeader className="border-b p-4">
             <DialogTitle>Configuration</DialogTitle>
           </DialogHeader>
