@@ -1,7 +1,8 @@
-import ConfigurationTab from "@/components/ConfigurationTab";
+
+import CombinedAvatarInterface from "@/components/CombinedAvatarInterface";
 
 const Index = () => {
-  return <ConfigurationTab />;
+  return <CombinedAvatarInterface />;
 };
 
 export default Index;
