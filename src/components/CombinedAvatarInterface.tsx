@@ -8,8 +8,8 @@ import {
   SidebarTrigger,
   SidebarInset
 } from "@/components/ui/sidebar";
-import { ConfigurationSidebar } from "./ConfigurationSidebar";
-import { AvatarSessionMain } from "./AvatarSessionMain";
+import ConfigurationSidebar from "./ConfigurationSidebar";
+import AvatarSessionMain from "./AvatarSessionMain";
 
 export interface SharedConfig {
   systemPrompt: string;
