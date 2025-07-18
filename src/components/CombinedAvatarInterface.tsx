@@ -48,7 +48,7 @@ const CombinedAvatarInterface = () => {
             <Settings className="h-4 w-4" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-full sm:max-w-md p-0 overflow-y-auto">
+        <SheetContent side="left" className="w-[80vw] p-0 overflow-y-auto">
           <SheetHeader className="border-b p-4">
             <SheetTitle>Configuration</SheetTitle>
           </SheetHeader>
